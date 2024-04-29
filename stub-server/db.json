@@ -1,0 +1,6 @@
+{ 
+  "restaurants": [                  
+    { "name": "Eka" },                  
+    { "name": "Toka" }                  
+  ]                  
+}
