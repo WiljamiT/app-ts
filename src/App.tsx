@@ -1,12 +1,18 @@
-import './App.css';                
 import Typography from '@mui/material/Typography';
+import RestaurantList from './components/RestaurantList';
 
-function App() {                  
+function App() {
+  const restaurants = [
+    {name: 'Eka'}, 
+    {name: 'Toka'}
+  ];
+
   return (                  
     <div className='App'>                  
       <Typography variant='h2' component='h2' data-test='heading'>                  
         App                  
-      </Typography>                  
+      </Typography>    
+      <RestaurantList restaurants={restaurants} />              
     </div>                  
   );                  
 }                
