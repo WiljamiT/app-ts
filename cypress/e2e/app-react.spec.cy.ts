@@ -44,5 +44,14 @@ describe('App-react application', function() {
       )    
                   
     }) 
-  })  
+  })
+
+  it('Goes to the detail page', () => {              
+    cy.visit('http://localhost:3000/');              
+    cy.get('div.restaurant-item').contains('View Details').eq(0).click();              
+    cy.url().should('include', "/restaurants/1")
+    cy.get('h2.restaurant-title').contains('Eka');              
+  }); 
+  
+  
 })

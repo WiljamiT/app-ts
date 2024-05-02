@@ -1,0 +1,24 @@
+{              
+  "restaurants": [              
+    {              
+      "name": "Eka",              
+      "id": 1,              
+      "description": "Testi"              
+    },              
+    {              
+      "name": "Toka",              
+      "id": 2,              
+      "description": "Jee"              
+    },              
+    {              
+      "name": "Kolmas",              
+      "id": 3,              
+      "description": "12345"              
+    },              
+    {              
+      "name": "Neljäs",              
+      "id": 4,              
+      "description": "67890"              
+    }              
+  ]              
+}

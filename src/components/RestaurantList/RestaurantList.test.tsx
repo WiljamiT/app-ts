@@ -1,7 +1,8 @@
 import React from 'react';                  
 import {render, screen, within} from '@testing-library/react';                
+import RestaurantList from './RestaurantList';
+import {act} from 'react';
                   
-import RestaurantList from './components/RestaurantList';                
                   
 describe('RestaurantList', () => {                  
   it('render restaurants', async () => {                  

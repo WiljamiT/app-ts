@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 import { Restaurant } from "../types";
 import axios from "axios";
+import { useParams } from "react-router";
 
-export const useRestaurants = () => {                
-    const [restaurants, setRestaurants] = useState<Restaurant[]>([]);                
+export const useRestaurant = () => {  
+    const { id } = useParams<string>();                
+    const [restaurant, setRestaurant] = useState<Restaurant>(({ id: 0, name: "" }));                
     const [loading, setLoading] = useState<boolean>(false);                
     const [error, setError] = useState<boolean>(false);              
                   
     useEffect(() => {        
-        const fetchRestaurants = async () => {                  
-            setError(false);                  
-            setLoading(true);                
-                        
+        const fetchRestaurants = async () => {
+          
+          setError(false);                  
+          setLoading(true); 
             try {                  
-              const res = await axios.get('http://localhost:8080/restaurants');                  
-              setRestaurants(res.data);                  
+              const restaurant = await axios.get(`http://localhost:8080/restaurants/${id}`);                  
+              setRestaurant(restaurant.data);                  
             } catch (e) {                  
               setError(true);                  
             } finally {                  
@@ -23,11 +25,11 @@ export const useRestaurants = () => {
           };                 
                   
       fetchRestaurants();                
-    }, [])              
+    }, [id])              
                   
     return {                
       loading,                
       error,                
-      restaurants                
+      restaurant         
     }                
   }   

@@ -1,11 +1,12 @@
-import type Restaurant from './types';              
+import type { Restaurant } from '../../types';              
                 
 const RestaurantList = ({restaurants}: {restaurants: Restaurant[]}, ) => {                
   return <div data-test='restaurant-list'>                
     {                
-      restaurants.map((restaurant, i) => (
-      <div className='restaurant-item' key={i}>                
-        <h2 className='title'>{restaurant.name}</h2>                
+      restaurants.map((restaurant) => (
+      <div className='restaurant-item' key={restaurant.id}>                
+        <h2 className='restaurant-title'>{restaurant.name}</h2>                
+        <a href={`/restaurants/${restaurant.id}`}>View Details</a>
       </div>
       ))                
     }                

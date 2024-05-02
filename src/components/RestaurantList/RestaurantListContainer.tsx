@@ -1,5 +1,5 @@
 import RestaurantList from './RestaurantList';                
-import useRestaurants from '../hooks/useRestaurants';
+import { useRestaurants } from '../../hooks/useRestaurants';
                   
 const RestaurantListContainer = () => {                  
   const { loading, error, restaurants } = useRestaurants();          
