@@ -2,6 +2,13 @@ import React from 'react';
 import {render, screen, within} from '@testing-library/react';                
 import RestaurantList from './RestaurantList';
 import {act} from 'react';
+import { MemoryRouter as Router } from "react-router-dom";                
+                  
+const renderWithRouter = (component: JSX.Element) => {                  
+  return {                  
+    ...render(<Router>{component}</Router>),                  
+  };                  
+};  
                   
                   
 describe('RestaurantList', () => {                  
@@ -12,12 +19,12 @@ describe('RestaurantList', () => {
         { 'name': 'Toka', 'id': 2 },                  
       ]                  
     };                  
-    render(<RestaurantList {...props} />);                
+    renderWithRouter(<RestaurantList {...props} />);                
                   
     const headings = await screen.findAllByRole('heading')                
                   
     headings.forEach((heading, index) => {                  
       expect(heading).toHaveTextContent(props.restaurants[index].name);                  
     });                  
-  })                  
+  })     
 }); 

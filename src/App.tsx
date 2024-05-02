@@ -2,6 +2,7 @@ import Typography from '@mui/material/Typography';
 import RestaurantListContainer from './components/RestaurantList/RestaurantListContainer';
 import { Route, Routes } from 'react-router';
 import RestaurantDetailContainer from './components/RestaurantDetail/RestaurantDetailContainer';
+import "./App.css"
 
 function App() {
   return (                  
