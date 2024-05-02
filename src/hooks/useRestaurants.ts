@@ -7,27 +7,31 @@ export const useRestaurants = () => {
     const [loading, setLoading] = useState<boolean>(false);                
     const [error, setError] = useState<boolean>(false);              
                   
+    const [term, setTerm] = useState<string>(''); 
+
     useEffect(() => {        
-        const fetchRestaurants = async () => {                  
+        const fetchRestaurants = async (term: string) => {                  
             setError(false);                  
             setLoading(true);                
                         
             try {                  
-              const res = await axios.get('http://localhost:8080/restaurants');                  
-              setRestaurants(res.data);                  
+              const response = await axios.get(`http://localhost:8080/restaurants?q=${term}&_sort=id`);                  
+              setRestaurants(response.data);                  
             } catch (e) {                  
               setError(true);                  
             } finally {                  
               setLoading(false);                  
             }                  
-          };                 
+          }               
                   
-      fetchRestaurants();                
-    }, [])              
+      fetchRestaurants(term);                
+    }, [term])              
                   
     return {                
       loading,                
       error,                
-      restaurants                
+      restaurants,
+      term,
+      setTerm                
     }                
   }   

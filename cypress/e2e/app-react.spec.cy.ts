@@ -52,6 +52,14 @@ describe('App-react application', function() {
     cy.url().should('include', "/restaurants/1")
     cy.get('h2.restaurant-title').contains('Eka');              
   }); 
+
+  it('Searches for a title', () => {              
+    cy.visit('http://localhost:3000/');              
+    cy.get('div.restaurant-item').should('have.length', 4);              
+    cy.get('[data-test="search"] input').type('design');              
+    cy.get('div.restaurant-item').should('have.length', 1);              
+    cy.get('div.restaurant-item').eq(0).contains('Toka');              
+  }); 
   
   
 })

@@ -1,18 +1,15 @@
 import RestaurantList from './RestaurantList';                
 import { useRestaurants } from '../../hooks/useRestaurants';
-                  
-const RestaurantListContainer = () => {                  
-  const { loading, error, restaurants } = useRestaurants();          
-  
-  if (loading) {
-    return <p>Loading...</p>
-  }
+import SearchBox from '../SearchBox';
 
-  if (error) {
-    return <p>Error...</p>
-  }
-  
-  return <RestaurantList restaurants={restaurants} />                  
+const RestaurantListContainer = () => {                  
+  const { restaurants, term, setTerm } = useRestaurants();          
+  // return <RestaurantList restaurants={restaurants} />       
+  return (
+  <>      
+    <SearchBox term={term} onSearch={setTerm} />        
+    <RestaurantList restaurants={restaurants} />              
+  </>);             
 }                
                   
 export default RestaurantListContainer; 

@@ -14,8 +14,10 @@ server.use((req, res, next) => {
 })                
                   
 server.use(middlewares)                  
-server.use(router)                
+server.use(router)
+
+PORT = 8080;
                   
-server.listen(8080, () => {                  
-    console.log('JSON Server is running')                  
+server.listen(PORT, () => {                  
+    console.log(`JSON Server is running on port ${PORT}`)                  
 })  
